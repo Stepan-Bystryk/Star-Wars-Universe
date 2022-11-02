@@ -1,6 +1,7 @@
 :root {
   --color-white: #fff;
   --color-black: black;
+  --color-yellow: #ffff00;
   --color-dark-purp: #101;
 
   --border-radius-small: 3px;
@@ -8,6 +9,8 @@
   --spacing-medium: 20px;
 
   --font-family-main: sans-serif;
+
+  --font-size-header: 26px;
 }
 
 body {
