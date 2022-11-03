@@ -1,11 +1,23 @@
-import styles from "./App.module.css";
-import { useState } from "react";
 import PeoplePage from "../PeoplePage";
+import HomePage from "../HomePage";
 
-// getApiResourse("https://swapi.dev/api/people");
+import { Routes, Route } from "react-router-dom";
+import Header from "../../components/Header";
+import styles from "./App.module.css";
 
 const App = () => {
-  return <PeoplePage />;
+  return (
+    <>
+      <div className={styles.wrapper}>
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/people" element={<PeoplePage />} />
+        </Routes>
+      </div>
+    </>
+  );
 };
 
 export default App;
