@@ -1,5 +1,6 @@
 import PeoplePage from "../PeoplePage";
 import HomePage from "../HomePage";
+import NotFoundPage from "../NotFoundPage";
 
 import { Routes, Route } from "react-router-dom";
 import Header from "../../components/Header";
@@ -14,6 +15,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/people" element={<PeoplePage />} />
+          <Route path="/*" element={<NotFoundPage />} />
+          <Route path="/not-found" element={<NotFoundPage />} />
         </Routes>
       </div>
     </>
