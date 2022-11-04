@@ -1,0 +1,9 @@
+.link {
+  margin: 20px;
+}
+
+.buttons {
+  padding: 10px 20px;
+  font-size: var(--font-size-subheader);
+  cursor: pointer;
+}
