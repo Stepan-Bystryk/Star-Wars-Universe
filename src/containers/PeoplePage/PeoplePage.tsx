@@ -6,14 +6,22 @@ import PeopleList from "../../components/PeoplePage/PeopleList";
 import { getApiResourse } from "../../utilities/network";
 import { getPeopleId, getPeopleImage } from "../../services/getPeopleData";
 import { API_PEOPLE } from "../../constants/api";
+import { useQueryParams } from "../../hooks/useQueryParams";
 
 import styles from "./PeoplePage.module.css";
 
 const PeoplePage = ({ setErrorApi }: any) => {
   const [people, setPeople]: any = useState(null);
 
+  const query = useQueryParams();
+  const queryPage = query.get("page");
+
+  console.log(queryPage);
+
   const getResourse = async (url: string) => {
     const res = await getApiResourse(url);
+
+    console.log(res);
 
     if (res) {
       const peopleList = res.results.map(({ name, url }: any) => {
@@ -35,8 +43,8 @@ const PeoplePage = ({ setErrorApi }: any) => {
   };
 
   useEffect(() => {
-    getResourse(API_PEOPLE);
-  }, []);
+    getResourse(API_PEOPLE + queryPage);
+  }, [queryPage]);
 
   return (
     <>
