@@ -3,7 +3,12 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
 import { withErrorApi } from "../../helpers/withErrorApi";
+
+import PersonInfo from "../../components/PersonPage/PersonInfo";
+import PersonPhoto from "../../components/PersonPage/PersonPhoto";
+
 import { getApiResource } from "../../utilities/network";
+import { getPeopleImage } from "../../services/getPeopleData";
 import { API_PERSON } from "../../constants/api";
 
 import styles from "./PersonPage.module.css";
@@ -12,11 +17,12 @@ const PersonPage = ({ setErrorApi }: any) => {
   const params = useParams();
   const [personInfo, setPersonInfo]: any = useState(null);
   const [personName, setPersonName]: any = useState(null);
+  const [personPhoto, setPersonPhoto]: any = useState(null);
 
   useEffect(() => {
     (async () => {
-      const current = params.id;
-      const res = await getApiResource(`${API_PERSON}/${current}/`);
+      const currentId = params.id;
+      const res = await getApiResource(`${API_PERSON}/${currentId}/`);
 
       if (res) {
         setPersonInfo([
@@ -30,6 +36,7 @@ const PersonPage = ({ setErrorApi }: any) => {
         ]);
 
         setPersonName(res.name);
+        setPersonPhoto(getPeopleImage(currentId));
 
         setErrorApi(false);
       } else {
@@ -40,24 +47,12 @@ const PersonPage = ({ setErrorApi }: any) => {
 
   return (
     <>
-      <h1>
-        {personName}
-        {useParams().current}
-        {personInfo && (
-          <ul>
-            {personInfo.map(
-              ({ title, data }: any) =>
-                data && (
-                  <li key={title}>
-                    <span>
-                      {title}: {data}
-                    </span>
-                  </li>
-                )
-            )}
-          </ul>
-        )}
-      </h1>
+      <h1>{personName}</h1>
+
+      <PersonPhoto personPhoto={personPhoto} personName={personName} />
+
+      {useParams().currentId}
+      {personInfo && <PersonInfo personInfo={personInfo} />}
     </>
   );
 };
