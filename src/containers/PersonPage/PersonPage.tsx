@@ -6,6 +6,7 @@ import { withErrorApi } from "../../helpers/withErrorApi";
 
 import PersonInfo from "../../components/PersonPage/PersonInfo";
 import PersonPhoto from "../../components/PersonPage/PersonPhoto";
+import PersonLinkBack from "../../components/PersonPage/PersonLinkBack";
 
 import { getApiResource } from "../../utilities/network";
 import { getPeopleImage } from "../../services/getPeopleData";
@@ -15,6 +16,7 @@ import styles from "./PersonPage.module.css";
 
 const PersonPage = ({ setErrorApi }: any) => {
   const params = useParams();
+
   const [personInfo, setPersonInfo]: any = useState(null);
   const [personName, setPersonName]: any = useState(null);
   const [personPhoto, setPersonPhoto]: any = useState(null);
@@ -47,6 +49,8 @@ const PersonPage = ({ setErrorApi }: any) => {
 
   return (
     <>
+      <PersonLinkBack />
+
       <div className={styles.wrapper}>
         <span className={styles.person__name}>{personName}</span>
 
