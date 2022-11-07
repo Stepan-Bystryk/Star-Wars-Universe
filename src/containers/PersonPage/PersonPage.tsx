@@ -6,6 +6,7 @@ import { withErrorApi } from "../../helpers/withErrorApi";
 
 import PersonInfo from "../../components/PersonPage/PersonInfo";
 import PersonPhoto from "../../components/PersonPage/PersonPhoto";
+import PersonFilms from "../../components/PersonPage/PersonFilms";
 import PersonLinkBack from "../../components/PersonPage/PersonLinkBack";
 
 import { getApiResource } from "../../utilities/network";
@@ -20,6 +21,7 @@ const PersonPage = ({ setErrorApi }: any) => {
   const [personInfo, setPersonInfo]: any = useState(null);
   const [personName, setPersonName]: any = useState(null);
   const [personPhoto, setPersonPhoto]: any = useState(null);
+  const [personFilms, setPersonFilms]: any = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -40,6 +42,8 @@ const PersonPage = ({ setErrorApi }: any) => {
         setPersonName(res.name);
         setPersonPhoto(getPeopleImage(currentId));
 
+        res.films.length && setPersonFilms(res.films);
+
         setErrorApi(false);
       } else {
         setErrorApi(true);
@@ -58,6 +62,7 @@ const PersonPage = ({ setErrorApi }: any) => {
           <PersonPhoto personPhoto={personPhoto} personName={personName} />
 
           {personInfo && <PersonInfo personInfo={personInfo} />}
+          {personFilms && <PersonFilms personFilms={personFilms} />}
         </div>
       </div>
     </>
