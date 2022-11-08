@@ -1,13 +1,15 @@
+import React, { useState, useEffect, Suspense } from "react";
 import PropTypes, { any } from "prop-types";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
 import { withErrorApi } from "../../helpers/withErrorApi";
 
 import PersonInfo from "../../components/PersonPage/PersonInfo";
 import PersonPhoto from "../../components/PersonPage/PersonPhoto";
-import PersonFilms from "../../components/PersonPage/PersonFilms";
+//import PersonFilms from "../../components/PersonPage/PersonFilms";
 import PersonLinkBack from "../../components/PersonPage/PersonLinkBack";
+
+import UiLoading from "../../components/UI/UiLoading";
 
 import { getApiResource } from "../../utilities/network";
 import { getPeopleImage } from "../../services/getPeopleData";
@@ -62,12 +64,20 @@ const PersonPage = ({ setErrorApi }: any) => {
           <PersonPhoto personPhoto={personPhoto} personName={personName} />
 
           {personInfo && <PersonInfo personInfo={personInfo} />}
-          {personFilms && <PersonFilms personFilms={personFilms} />}
+          {personFilms && (
+            <Suspense fallback={<UiLoading />}>
+              <PersonFilms personFilms={personFilms} />
+            </Suspense>
+          )}
         </div>
       </div>
     </>
   );
 };
+
+const PersonFilms = React.lazy(
+  () => import("../../components/PersonPage/PersonFilms")
+);
 
 PersonPage.propTypes = {
   useParams: PropTypes.object,
