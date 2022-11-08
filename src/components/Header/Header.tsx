@@ -15,6 +15,9 @@ const Header = () => {
         <li>
           <Link to="/not-found">Not Found</Link>
         </li>
+        <li>
+          <Link to="/favorites">Favorites</Link>
+        </li>
       </ul>
     </div>
   );

@@ -20,6 +20,7 @@ import styles from "./PersonPage.module.css";
 const PersonPage = ({ setErrorApi }: any) => {
   const params = useParams();
 
+  const [personId, setPersonId]: any = useState(null);
   const [personInfo, setPersonInfo]: any = useState(null);
   const [personName, setPersonName]: any = useState(null);
   const [personPhoto, setPersonPhoto]: any = useState(null);
@@ -29,6 +30,8 @@ const PersonPage = ({ setErrorApi }: any) => {
     (async () => {
       const currentId = params.id;
       const res = await getApiResource(`${API_PERSON}/${currentId}/`);
+
+      setPersonId(currentId);
 
       if (res) {
         setPersonInfo([
@@ -61,7 +64,11 @@ const PersonPage = ({ setErrorApi }: any) => {
         <span className={styles.person__name}>{personName}</span>
 
         <div className={styles.container}>
-          <PersonPhoto personPhoto={personPhoto} personName={personName} />
+          <PersonPhoto
+            personId={personId}
+            personPhoto={personPhoto}
+            personName={personName}
+          />
 
           {personInfo && <PersonInfo personInfo={personInfo} />}
           {personFilms && (
