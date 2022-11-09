@@ -1,4 +1,5 @@
 import { Action } from "@remix-run/router";
+import { log } from "console";
 import { omit } from "lodash";
 import {
   ADD_PERSON_TO_FAVORITE,

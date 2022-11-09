@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Favorite from "../Favorite";
 
 import styles from "./Header.module.css";
 
@@ -15,10 +16,9 @@ const Header = () => {
         <li>
           <Link to="/not-found">Not Found</Link>
         </li>
-        <li>
-          <Link to="/favorites">Favorites</Link>
-        </li>
       </ul>
+
+      <Favorite />
     </div>
   );
 };

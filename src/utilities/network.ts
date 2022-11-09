@@ -3,13 +3,11 @@ export const getApiResource = async (url: string) => {
     const response = await fetch(url);
 
     if (!response.ok) {
-      console.log("Could not fetch.");
       return null;
     }
 
     return await response.json();
   } catch (error) {
-    console.log("Error 404");
     return null;
   }
 };
