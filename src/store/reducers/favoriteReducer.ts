@@ -1,12 +1,11 @@
-import { Action } from "@remix-run/router";
-import { log } from "console";
 import { omit } from "lodash";
+import { getLocalStorage } from "../../utilities/localStorage";
 import {
   ADD_PERSON_TO_FAVORITE,
   REMOVE_PERSON_FROM_FAVORITE,
 } from "../constants/actionTypes";
 
-const initialState = {};
+const initialState = getLocalStorage("store");
 
 const favoriteReducer = (state = initialState, action: any) => {
   switch (action.type) {

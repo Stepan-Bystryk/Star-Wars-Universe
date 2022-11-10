@@ -7,7 +7,6 @@ import { withErrorApi } from "../../helpers/withErrorApi";
 
 import PersonInfo from "../../components/PersonPage/PersonInfo";
 import PersonPhoto from "../../components/PersonPage/PersonPhoto";
-//import PersonFilms from "../../components/PersonPage/PersonFilms";
 import PersonLinkBack from "../../components/PersonPage/PersonLinkBack";
 
 import UiLoading from "../../components/UI/UiLoading";
@@ -17,6 +16,10 @@ import { getPeopleImage } from "../../services/getPeopleData";
 import { API_PERSON } from "../../constants/api";
 
 import styles from "./PersonPage.module.css";
+
+const PersonFilms = React.lazy(
+  () => import("../../components/PersonPage/PersonFilms")
+);
 
 const PersonPage = ({ setErrorApi }: any) => {
   const params = useParams();
@@ -29,8 +32,6 @@ const PersonPage = ({ setErrorApi }: any) => {
   const [personFavorite, setPersonFavorite]: any = useState(false);
 
   const storeDate: any = useSelector((state: any) => state.favoriteReducer);
-
-  console.log(storeDate);
 
   useEffect(() => {
     (async () => {
@@ -91,10 +92,6 @@ const PersonPage = ({ setErrorApi }: any) => {
     </>
   );
 };
-
-const PersonFilms = React.lazy(
-  () => import("../../components/PersonPage/PersonFilms")
-);
 
 PersonPage.propTypes = {
   useParams: PropTypes.object,

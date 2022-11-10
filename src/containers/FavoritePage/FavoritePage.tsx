@@ -27,7 +27,7 @@ const FavoritePage = () => {
 
   return (
     <>
-      <h1 className="header__text">Favorites Page</h1>
+      <h1 className="header__text">Favourites Page</h1>
       {people.length ? (
         <PeopleList people={people} />
       ) : (
