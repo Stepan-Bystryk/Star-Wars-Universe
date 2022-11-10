@@ -1,5 +1,6 @@
 import { any } from "prop-types";
 import React, { useContext, useState } from "react";
+import { chengeCssVariables } from "../services/chengeCssVariables";
 
 export const THEME_LIGHT = "light";
 export const THEME_DARK = "dark";
@@ -12,6 +13,7 @@ export const ThemeProvider = ({ children, ...props }: any) => {
 
   const chenge = (name: any) => {
     setTheme(name);
+    chengeCssVariables(name);
   };
 
   return (
