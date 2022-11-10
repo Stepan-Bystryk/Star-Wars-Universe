@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { makeConcurrentRequest } from "../../../utilities/network";
 import styles from "./PersonFilms.module.css";
 
-const PersonFilms = ({ personFilms }: any) => {
+const PersonFilms = ({ personFilms }: { personFilms: any[] }) => {
   const [filmsName, setFilmsName] = useState<any[]>([]);
 
   useEffect(() => {
@@ -30,10 +30,6 @@ const PersonFilms = ({ personFilms }: any) => {
       </ul>
     </div>
   );
-};
-
-PersonFilms.propTypes = {
-  personFilms: PropTypes.array,
 };
 
 export default PersonFilms;

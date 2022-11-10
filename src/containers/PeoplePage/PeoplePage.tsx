@@ -15,7 +15,11 @@ import { useQueryParams } from "../../hooks/useQueryParams";
 
 import styles from "./PeoplePage.module.css";
 
-const PeoplePage = ({ setErrorApi }: any) => {
+const PeoplePage = ({
+  setErrorApi,
+}: {
+  setErrorApi: (value: boolean) => {};
+}) => {
   const [people, setPeople]: any = useState(null);
   const [prevPage, setPrevPage]: any = useState(null);
   const [nextPage, setNextPage]: any = useState(null);
@@ -64,10 +68,6 @@ const PeoplePage = ({ setErrorApi }: any) => {
       {people && <PeopleList people={people} />}
     </>
   );
-};
-
-PeoplePage.propTypes = {
-  setErrorApi: PropTypes.func,
 };
 
 export default withErrorApi(PeoplePage);
