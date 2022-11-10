@@ -36,8 +36,29 @@
   --box-shadow-black: 0 16px 24px 2px rgba(0, 0, 0, 0.5),
     0 6px 30px 5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 
-  --theme-default-header: #cccc46;
-  --theme-default-bgimage: url(../static/bg.jpg);
+  --theme-light-header: #dfe2df;
+  --theme-dark-header: #ca6e6f;
+  --theme-neutral-header: #cccc46;
+  --theme-default-header: var(--theme-neutral-header);
+
+  --theme-light-bgimage: radial-gradient(
+    circle,
+    #305ad1,
+    #284499,
+    #202f65,
+    #161b35,
+    #000004
+  );
+  --theme-dark-bgimage: radial-gradient(
+    circle,
+    #901e28,
+    #6c1b22,
+    #4a171a,
+    #2a1111,
+    #040101
+  );
+  --theme-neutral-bgimage: url(../static/bg.jpg);
+  --theme-default-bgimage: var(--theme-neutral-bgimage);
 }
 
 body {
