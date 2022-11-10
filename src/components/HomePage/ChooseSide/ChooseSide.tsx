@@ -1,4 +1,10 @@
-import PropTypes from "prop-types";
+import PropTypes, { any, element } from "prop-types";
+import cn from "classnames";
+
+import imgLightSide from "./img/Light.jpg";
+import imgDarkSide from "./img/Dark.jpg";
+import imgDefaultSide from "./img/Default.jpg";
+
 import {
   useTheme,
   THEME_NEUTRAL,
@@ -8,19 +14,65 @@ import {
 
 import styles from "./ChooseSide.module.css";
 
-const ChooseSide = () => {
+const ChooseSideItem = ({
+  classes,
+  theme,
+  text,
+  img,
+}: {
+  classes: string;
+  theme: string;
+  text: string;
+  img: string;
+}) => {
   const isTheme: any = useTheme();
 
   return (
-    <>
-      {isTheme.theme}
-      <button onClick={() => isTheme.chenge(THEME_LIGHT)}>Light</button>
-      <button onClick={() => isTheme.chenge(THEME_DARK)}>Dark</button>
-      <button onClick={() => isTheme.chenge(THEME_NEUTRAL)}>Neutral</button>
-    </>
+    <div
+      className={cn(styles.item, classes)}
+      onClick={() => isTheme.chenge(theme)}
+    >
+      <div className={styles.item__header}>{text}</div>
+      <img className={styles.item__img} src={img} alt={text}></img>
+    </div>
   );
 };
 
-ChooseSide.propTypes = {};
+const ChooseSide = () => {
+  const elements = [
+    {
+      theme: THEME_LIGHT,
+      text: "Light Side",
+      img: imgLightSide,
+      classes: styles.item__light,
+    },
+    {
+      theme: THEME_DARK,
+      text: "Dark Side",
+      img: imgDarkSide,
+      classes: styles.item__dark,
+    },
+    {
+      theme: THEME_NEUTRAL,
+      text: "Default",
+      img: imgDefaultSide,
+      classes: styles.item__default,
+    },
+  ];
+
+  return (
+    <div className={styles.container}>
+      {elements.map(({ theme, text, img, classes }, index) => (
+        <ChooseSideItem
+          key={index}
+          theme={theme}
+          text={text}
+          img={img}
+          classes={classes}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default ChooseSide;

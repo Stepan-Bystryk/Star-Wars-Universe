@@ -43,11 +43,11 @@
 
   --theme-light-bgimage: radial-gradient(
     circle,
-    #d1d030,
-    #c49f12,
-    #ad7104,
-    #8f4605,
-    #6b1e04
+    #305ad1,
+    #284499,
+    #202f65,
+    #161b35,
+    #000004
   );
   --theme-dark-bgimage: radial-gradient(
     circle,
