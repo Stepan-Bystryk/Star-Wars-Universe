@@ -4,6 +4,7 @@ import store from "./store/store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
+import ThemeProvider from "./context/ThemeProvider";
 import App from "./containers/App";
 import "./styles/index.css";
 
@@ -13,7 +14,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </Provider>
   </BrowserRouter>
 );
