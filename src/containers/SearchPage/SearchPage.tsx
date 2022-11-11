@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { debounce } from "lodash";
 
 import { getApiResource } from "../../utilities/network";
 import { API_SEARCH } from "../../constants/api";
@@ -10,7 +11,7 @@ import SearchPageInfo from "../../components/SearchPage/SearchPageInfo";
 
 import styles from "./SearchPage.module.css";
 
-const SearchPage = ({ setErrorApi }: any) => {
+const SearchPage = ({ setErrorApi }: { setErrorApi: ({}) => {} }) => {
   const [inputSearchValue, setInputSearchValue] = useState("");
   const [people, setPeople] = useState([]);
 
@@ -36,11 +37,16 @@ const SearchPage = ({ setErrorApi }: any) => {
     }
   };
 
+  const debouncedGetResponse = useCallback(
+    debounce((value) => getResponse(value), 300),
+    []
+  );
+
   const handleInputChenge = (event: any) => {
     const value = event.target.value;
 
     setInputSearchValue(value);
-    getResponse(value);
+    debouncedGetResponse(value);
   };
 
   return (
@@ -55,10 +61,6 @@ const SearchPage = ({ setErrorApi }: any) => {
       <SearchPageInfo people={people} />
     </>
   );
-};
-
-SearchPage.propTypes = {
-  setErrorApi: PropTypes.func,
 };
 
 export default withErrorApi(SearchPage);
