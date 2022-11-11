@@ -8,6 +8,7 @@ import FavoritePage from "../FavoritePage";
 
 import Header from "../../components/Header";
 import styles from "./App.module.css";
+import SearchPage from "../SearchPage";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/people" element={<PeoplePage />} />
           <Route path="/people/:id" element={<PersonPage />} />
           <Route path="/favorites" element={<FavoritePage />} />
+          <Route path="/search" element={<SearchPage />} />
           <Route path="/*" element={<NotFoundPage />} />
           <Route path="/not-found" element={<NotFoundPage />} />
         </Routes>
