@@ -5,18 +5,18 @@ import styles from "./SearchPageInfo.module.css";
 const SearchPageInfo = ({ people }: any) => (
   <>
     {people.length ? (
-      <ul>
+      <ul className={styles.list__container}>
         {people.map(({ id, name, img }: any) => (
-          <li key={id}>
+          <li className={styles.list__item} key={id}>
             <Link to={`/people/${id}`}>
-              <img src={img} alt={name} />
-              <p>{name}</p>
+              <img className={styles.person__photo} src={img} alt={name} />
+              <p className={styles.person__name}>{name}</p>
             </Link>
           </li>
         ))}
       </ul>
     ) : (
-      <h2>No results</h2>
+      <h2 className={styles.person__comment}>No results</h2>
     )}
   </>
 );
