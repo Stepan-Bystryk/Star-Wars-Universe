@@ -7,6 +7,7 @@ import { API_SEARCH } from "../../constants/api";
 import { withErrorApi } from "../../helpers/withErrorApi";
 import { getPeopleId, getPeopleImage } from "../../services/getPeopleData";
 
+import UiInput from "../../components/UI/UiInput/UiInput";
 import SearchPageInfo from "../../components/SearchPage/SearchPageInfo";
 
 import styles from "./SearchPage.module.css";
@@ -42,9 +43,7 @@ const SearchPage = ({ setErrorApi }: { setErrorApi: ({}) => {} }) => {
     []
   );
 
-  const handleInputChenge = (event: any) => {
-    const value = event.target.value;
-
+  const handleInputChenge = (value: any) => {
     setInputSearchValue(value);
     debouncedGetResponse(value);
   };
@@ -52,12 +51,14 @@ const SearchPage = ({ setErrorApi }: { setErrorApi: ({}) => {} }) => {
   return (
     <>
       <h1 className="header__text">Search</h1>
-      <input
-        type="text"
+
+      <UiInput
         value={inputSearchValue}
-        onChange={handleInputChenge}
-        placeholder="Input characters name"
+        handleInputChenge={handleInputChenge}
+        placeholder="Enter character name"
+        classes={styles.input__search}
       />
+
       <SearchPageInfo people={people} />
     </>
   );
