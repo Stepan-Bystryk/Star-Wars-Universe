@@ -52,6 +52,9 @@ const Header = () => {
         <li>
           <Link to="/search">Search</Link>
         </li>
+        <li>
+          <Link to="/fail">Fail</Link>
+        </li>
       </ul>
 
       <Favorite />
