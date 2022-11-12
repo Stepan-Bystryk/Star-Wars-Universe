@@ -1,6 +1,4 @@
-import PropTypes, { any, element } from "prop-types";
 import cn from "classnames";
-
 import imgLightSide from "./img/Light.jpg";
 import imgDarkSide from "./img/Dark.jpg";
 import imgDefaultSide from "./img/Default.jpg";

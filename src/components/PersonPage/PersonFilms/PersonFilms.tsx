@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import { makeConcurrentRequest } from "../../../utilities/network";
 import styles from "./PersonFilms.module.css";

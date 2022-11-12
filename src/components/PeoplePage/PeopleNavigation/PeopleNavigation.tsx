@@ -1,8 +1,5 @@
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
 import UiButton from "../../UI/UiButton/UiButton";
-
 import styles from "./PeopleNavigation.module.css";
 
 const PeopleNavigation = ({
@@ -10,7 +7,12 @@ const PeopleNavigation = ({
   prevPage,
   nextPage,
   counterPage,
-}: any) => {
+}: {
+  getResource: (value: any) => {};
+  prevPage: string;
+  nextPage: string;
+  counterPage: number;
+}) => {
   const handleChangeNext = () => getResource(nextPage);
   const handleChangePrev = () => getResource(prevPage);
   return (
@@ -39,13 +41,6 @@ const PeopleNavigation = ({
       </div>
     </>
   );
-};
-
-PeopleNavigation.propTypes = {
-  getResource: PropTypes.func,
-  prevPage: PropTypes.string,
-  nextPage: PropTypes.string,
-  counterPage: PropTypes.number,
 };
 
 export default PeopleNavigation;
