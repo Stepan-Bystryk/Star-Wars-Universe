@@ -5,10 +5,10 @@ import PersonPage from "../PersonPage";
 import HomePage from "../HomePage";
 import NotFoundPage from "../NotFoundPage";
 import FavoritePage from "../FavoritePage";
-
 import Header from "../../components/Header";
-import styles from "./App.module.css";
 import SearchPage from "../SearchPage";
+import ErrorMessage from "../../components/ErrorMessage";
+import styles from "./App.module.css";
 
 const App = () => {
   return (
@@ -23,6 +23,7 @@ const App = () => {
           <Route path="/favorites" element={<FavoritePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/*" element={<NotFoundPage />} />
+          <Route path="/fail" element={<ErrorMessage />} />
           <Route path="/not-found" element={<NotFoundPage />} />
         </Routes>
       </div>

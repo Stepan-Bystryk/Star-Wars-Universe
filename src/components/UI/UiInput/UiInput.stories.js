@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { UiImput } from "./UiInput";
+import { UiInput } from "./UiInput";
 
 export default {
   title: "Ui-Kit/UiInput",
@@ -14,7 +14,7 @@ const Template = (arg) => {
   };
 
   return (
-    <UiImput {...arg} value={value} handleInputChenge={handleInputChenge} />
+    <UiInput {...arg} value={value} handleInputChenge={handleInputChenge} />
   );
 };
 

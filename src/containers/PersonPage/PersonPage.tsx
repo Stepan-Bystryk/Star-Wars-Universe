@@ -21,7 +21,11 @@ const PersonFilms = React.lazy(
   () => import("../../components/PersonPage/PersonFilms")
 );
 
-const PersonPage = ({ setErrorApi }: any) => {
+const PersonPage = ({
+  setErrorApi,
+}: {
+  setErrorApi: (value: boolean) => {};
+}) => {
   const params = useParams();
 
   const [personId, setPersonId]: any = useState(null);
@@ -91,11 +95,6 @@ const PersonPage = ({ setErrorApi }: any) => {
       </div>
     </>
   );
-};
-
-PersonPage.propTypes = {
-  useParams: PropTypes.object,
-  setErrorApi: PropTypes.func,
 };
 
 export default withErrorApi(PersonPage);
