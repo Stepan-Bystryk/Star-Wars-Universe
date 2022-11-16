@@ -2,7 +2,7 @@
 
 ---
 
-## 🎓 Рассмотренные темы
+## 🎓 Используемые инструменты
 
 ### React.js
 
@@ -25,7 +25,7 @@
 - URL Parameters
 - Query Parameters
 - Обработка страницы 404 (Not Found)
-- Хуки `useLocation` и `useHistory`
+- Хуки `useLocation` и `usenaNigation`
 
 ### Redux
 
@@ -64,6 +64,7 @@
 ## 🔗 API
 
 - https://swapi.dev (основное API)
+- https://swapi.py4e.com/ (запасное API)
 - https://starwars-visualguide.com (изображения для API)
 
 ---
