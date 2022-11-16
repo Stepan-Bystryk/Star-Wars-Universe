@@ -8,7 +8,7 @@ import loaderBlue from "./img/loader-blue.svg";
 
 import styles from "./UiLoading.module.css";
 
-const UiLoading = ({ theme = "white", isShadow = true, classes }: any) => {
+const UiLoading = ({ theme = "blue", isShadow = true, classes }: any) => {
   const [loaderIcon, setLoaderIcon]: any = useState(null);
 
   useEffect(() => {
